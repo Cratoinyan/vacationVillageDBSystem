@@ -1,13 +1,13 @@
 package UI;
 
-import DB.DbConnector;
+import DB.DbContext;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainPage {
-    public DbConnector db = null;
+    public DbContext db = null;
     JFrame frame = new JFrame("Home");
     JButton connectBtn = new JButton("Connect");
 
@@ -26,7 +26,7 @@ public class MainPage {
         connectBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    db.connect();
+                    db.getConnection();
                     isConnect = false;
                     connectBtn.setText("Disconnect");
                     dbStatus.setText("Opened database successfully");
