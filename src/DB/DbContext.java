@@ -2,11 +2,14 @@ package DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
-public class DbConnector {
-    public void connect() {
+public class DbContext {
+    public DbContext() {
+        System.out.println("Opened database successfully");
+    }
+
+    public static Connection getConnection()
+    {
         Connection c = null;
         try {
             Class.forName("org.postgresql.Driver");
@@ -19,6 +22,6 @@ public class DbConnector {
             System.err.println(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
-        System.out.println("Opened database successfully");
+        return c;
     }
 }
