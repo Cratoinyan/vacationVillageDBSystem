@@ -1,3 +1,5 @@
+//This class handles the basic communications with the database
+
 package DB;
 
 import java.sql.Connection;
@@ -9,6 +11,9 @@ public class DbContext {
         System.out.println("Opened database successfully");
     }
 
+    //Function that returns a db connection
+    //This function is used to connect the db for any reason.
+    //All connections must be closed after they are no longer used.
     public static Connection getConnection()
     {
         Connection c = null;
@@ -26,7 +31,10 @@ public class DbContext {
         return c;
     }
 
-    public static void ExecuteQuerry(String sql){
+    //Function to execute given sql query.
+    //Function gets a db connection from the getConnection function and then through that
+    //connection executes the query. After the query is executed the connection is closed.
+    public static void ExecuteQuery(String sql){
         Connection connection = DbContext.getConnection();
         Statement stm = null;
         try {
