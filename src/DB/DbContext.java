@@ -2,6 +2,7 @@ package DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class DbContext {
     public DbContext() {
@@ -23,5 +24,22 @@ public class DbContext {
             System.exit(0);
         }
         return c;
+    }
+
+    public static void ExecuteQuerry(String sql){
+        Connection connection = DbContext.getConnection();
+        Statement stm = null;
+        try {
+            stm = connection.createStatement();
+            stm.executeUpdate(sql);
+            connection.commit();
+            stm.close();
+            connection.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
     }
 }
