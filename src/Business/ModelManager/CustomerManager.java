@@ -13,4 +13,8 @@ public class CustomerManager {
     public void addCustomer(Customer customer){
         customerDAO.addCustomer(customer);
     }
+
+    public void removeCustomer(String customerID){
+        customerDAO.removeCustomer(customerID);
+    }
 }

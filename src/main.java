@@ -10,8 +10,9 @@ public class main {
         DbContext db = new DbContext();
         CustomerDAO customerDAO = new CustomerDAO();
         CustomerManager customerManager = new CustomerManager(customerDAO);
-//        Customer customer = new Customer("123456789","Umut",21,12,"5071132150");
+        Customer customer = new Customer("123456789","Umut",21,12,"5071132150");
 //        customerManager.addCustomer(customer);
+        customerManager.removeCustomer("123456789");
 //
 //        customer = new Customer("111111111","Hürmet",62,03,"5053597195");
 //        customerManager.addCustomer(customer);

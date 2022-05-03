@@ -12,4 +12,14 @@ public class CustomerDAO {
                 + customer.getRoomNumber() + ", '" + customer.getPhoneNumber() + "');";
         DbContext.ExecuteQuerry(sql);
     }
+
+    public void removeCustomer(String customerID){
+        String sql = "delete from customerPassword where customerID = '" + customerID + "';";
+        DbContext.ExecuteQuerry(sql);
+        sql = "delete from appointment where customerID = '" + customerID + "';";
+        DbContext.ExecuteQuerry(sql);
+        sql = "delete from customer where customerID = '" + customerID + "';";
+        DbContext.ExecuteQuerry(sql);
+
+    }
 }
