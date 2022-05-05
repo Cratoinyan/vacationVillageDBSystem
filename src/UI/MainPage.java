@@ -26,7 +26,7 @@ public class MainPage {
         connectBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    db.getConnection();
+//                    db.getConnection();
                     isConnect = false;
                     connectBtn.setText("Disconnect");
                     dbStatus.setText("Opened database successfully");

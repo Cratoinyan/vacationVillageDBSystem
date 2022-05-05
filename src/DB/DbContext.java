@@ -14,7 +14,7 @@ public class DbContext {
     //Function that returns a db connection
     //This function is used to connect the db for any reason.
     //All connections must be closed after they are no longer used.
-    public static Connection getConnection()
+    private static Connection getConnection()
     {
         Connection c = null;
         try {
