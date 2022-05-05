@@ -11,25 +11,25 @@ public class AnimatorDAO {
         DbContext.ExecuteQuery(sql);
     }
 
-    public void removeCustomer(String animatorID){
+    public void removeAnimator(String animatorID){
         //delete animator password
-        String sql = "delete from animatorPassword where animatorID = " + animatorID;
+        String sql = "delete from animatorPassword where animatorID = '" + animatorID + "';";
         DbContext.ExecuteQuery(sql);
 
         //delete equipment used by the animator
-        sql = "delete from equipment where eSSN = " + animatorID;
+        sql = "delete from equipment where eSSN = '" + animatorID + "';";
         DbContext.ExecuteQuery(sql);
 
         //delete equip person
-        sql = "delete from equip_person where empID = " + animatorID;
+        sql = "delete from equip_person where empID = '" + animatorID + "';";
         DbContext.ExecuteQuery(sql);
 
         //delete animator's appointments
-        sql = "delete from appointment where animatorID = " + animatorID;
+        sql = "delete from appointment where animatorID = '" + animatorID + "';";
         DbContext.ExecuteQuery(sql);
 
         //delete animator
-        sql = "delete from animator where empID = " + animatorID;
+        sql = "delete from animator where empID = '" + animatorID + "';";
         DbContext.ExecuteQuery(sql);
     }
 }
