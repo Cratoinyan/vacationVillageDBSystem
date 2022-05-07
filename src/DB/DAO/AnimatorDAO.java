@@ -1,6 +1,6 @@
 package DB.DAO;
 
-import Business.Model.Animator;
+import Business.Model.User.Animator;
 import DB.DbContext;
 import DB.QueryResult;
 

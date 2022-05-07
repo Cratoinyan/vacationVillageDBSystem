@@ -1,4 +1,4 @@
-package Business.Model;
+package Business.Model.User;
 
 public class Customer {
     private String ID;

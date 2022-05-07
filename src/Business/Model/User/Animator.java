@@ -1,18 +1,16 @@
-package Business.Model;
+package Business.Model.User;
 
-public class EquipPerson {
+public class Animator {
     private String ID;
-    private String ssn;
     private String name;
-    private String surname;
     private String phoneNum;
+    private String expArea;
 
-    public EquipPerson(String ID, String ssn, String name, String surname, String phoneNum) {
+    public Animator(String ID, String name, String phoneNum, String expArea) {
         this.ID = ID;
-        this.ssn = ssn;
         this.name = name;
-        this.surname = surname;
         this.phoneNum = phoneNum;
+        this.expArea = expArea;
     }
 
     public String getID() {
@@ -23,14 +21,6 @@ public class EquipPerson {
         this.ID = ID;
     }
 
-    public String getSsn() {
-        return ssn;
-    }
-
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
-    }
-
     public String getName() {
         return name;
     }
@@ -39,19 +29,19 @@ public class EquipPerson {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
     public String getPhoneNum() {
         return phoneNum;
     }
 
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+
+    public String getExpArea() {
+        return expArea;
+    }
+
+    public void setExpArea(String expArea) {
+        this.expArea = expArea;
     }
 }

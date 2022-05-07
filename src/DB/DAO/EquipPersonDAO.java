@@ -1,6 +1,6 @@
 package DB.DAO;
 
-import Business.Model.EquipPerson;
+import Business.Model.User.EquipPerson;
 import DB.DbContext;
 
 public class EquipPersonDAO {

@@ -1,6 +1,6 @@
 package Business.ModelManager;
 
-import Business.Model.EquipPerson;
+import Business.Model.User.EquipPerson;
 import DB.DAO.EquipPersonDAO;
 
 public class EquipPersonManager {

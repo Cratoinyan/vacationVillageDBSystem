@@ -2,12 +2,9 @@
 
 package DB.DAO;
 
-import Business.Model.Customer;
+import Business.Model.User.Customer;
 import DB.DbContext;
 import DB.QueryResult;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class CustomerDAO {
     public void addCustomer(Customer customer)

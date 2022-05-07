@@ -1,5 +1,3 @@
-import Business.Model.Animator;
-import Business.Model.Customer;
 import Business.ModelManager.AnimatorManager;
 import Business.ModelManager.CustomerManager;
 import DB.DAO.AnimatorDAO;

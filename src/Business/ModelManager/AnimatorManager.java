@@ -1,6 +1,6 @@
 package Business.ModelManager;
 
-import Business.Model.Animator;
+import Business.Model.User.Animator;
 import DB.DAO.AnimatorDAO;
 
 import java.util.Objects;
