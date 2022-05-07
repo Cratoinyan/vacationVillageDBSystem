@@ -2,11 +2,11 @@ create table customer (customerID char(9) not null, name varchar(35) not null, a
 create table animator (empID char(9) not null, name varchar(35) not null, phoneNum char(10) not null, expArea varchar(255) not null, primary key (empID));
 create table equip_person (empID char(9) not null, ssn char(9) not null unique, name varchar(35) not null, surname varchar(35) not null, phoneNum char(10) not null, primary key (empID));
 create table appointment (customerID char(9) not null, activityID char(9) not null, animatorID char(9) not null, dateHour timestamp not null, primary key (customerID, activityID, animatorID));
-create table massActivity (activityID char(9) not null, activityType varchar(35) not null, capacity int4 not null, primary key (activityID));
+create table massActivity (activityID char(9) not null, activityType varchar(35) not null, capacity varchar(3) not null, primary key (activityID));
 create table individualActivity (activityID char(9) not null, age int4 not null, primary key (activityID));
 create table emergencyInformation (activityID char(9) not null, phoneNum char(255) not null, LockerNum int4 not null, primary key (activityID));
 create table equipment (eSSN char(9) not null, name varchar(35) not null, purpose varchar(255) not null, primary key (eSSN));
-create table activity (activityID char(9) not null, name varchar(35) not null, link varchar(255) not null, "date" date not null, hour time(7) not null, primary key (activityID));
+create table activity (activityID char(9) not null, name varchar(35) not null, link varchar(255) not null, "date" date not null, hour time(7) not null, animatorID char(9) not null, primary key (activityID));
 create table activityHistory (activityID char(9) not null, phoneNum char(10) not null, lockerNum int4 not null, primary key (activityID));
 create table customerPassword (customerID char(9) not null, password varchar(16) not null, primary key (customerID));
 create table animatorPassword (animatorID char(9) not null, password varchar(16) not null, primary key (animatorID));
@@ -20,3 +20,4 @@ alter table appointment add constraint FKappointmen316376 foreign key (animatorI
 alter table animatorPassword add constraint FKanimatorPa507510 foreign key (animatorID) references animator (empID);
 alter table customerPassword add constraint FKcustomerPa912509 foreign key (customerID) references customer (customerID);
 alter table equipment add constraint FKequipment557973 foreign key (eSSN) references equip_person (ssn);
+alter table activity add constraint FKactivity288221 foreign key (animatorID) references animator (empID);
