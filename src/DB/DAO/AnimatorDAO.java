@@ -2,6 +2,7 @@ package DB.DAO;
 
 import Business.Model.Animator;
 import DB.DbContext;
+import DB.QueryResult;
 
 public class AnimatorDAO {
 
@@ -31,5 +32,27 @@ public class AnimatorDAO {
         //delete animator
         sql = "delete from animator where empID = '" + animatorID + "';";
         DbContext.ExecuteQuery(sql);
+    }
+
+    public String getPassword(String animatorID){
+        QueryResult queryResult = null;
+        String password = null;
+
+        String sql = "select password from animatorPassword where animatorID = '" + animatorID + "';";
+        queryResult = DbContext.ExecuteSelectQuery(sql);
+
+        try {
+            while(queryResult.resultSet.next()) {
+                password = queryResult.resultSet.getString("password");
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
+
+        queryResult.closeConnection();
+        return password;
     }
 }

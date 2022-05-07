@@ -3,6 +3,8 @@ package Business.ModelManager;
 import Business.Model.Animator;
 import DB.DAO.AnimatorDAO;
 
+import java.util.Objects;
+
 public class AnimatorManager {
 
     private AnimatorDAO animatorDAO;
@@ -17,5 +19,14 @@ public class AnimatorManager {
 
     public void removeAnimator(String animatorID){
         animatorDAO.removeAnimator(animatorID);
+    }
+
+    public boolean authenticateAnimator(String ID, String password)
+    {
+        if(Objects.equals(password, animatorDAO.getPassword(ID))){
+            return true;
+        }
+
+        return false;
     }
 }

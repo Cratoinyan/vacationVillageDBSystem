@@ -25,9 +25,16 @@ public class main {
         else{
             System.out.println("wrong password");
         }
-
+//
 //        Animator animator = new Animator("333333333", "emp", "1234567890", "emparea");
 //        animatorManager.addAnimator(animator);
+
+        if(animatorManager.authenticateAnimator("333333333", "9e518f8736ab6eaf")){
+            System.out.println("animator exists");
+        }
+        else{
+            System.out.println("wrong password");
+        }
 
 //        animatorManager.removeAnimator("333333333");
 //
