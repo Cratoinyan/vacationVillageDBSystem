@@ -4,6 +4,10 @@ package DB.DAO;
 
 import Business.Model.Customer;
 import DB.DbContext;
+import DB.QueryResult;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CustomerDAO {
     public void addCustomer(Customer customer)
@@ -24,5 +28,27 @@ public class CustomerDAO {
         sql = "delete from customer where customerID = '" + customerID + "';";
         DbContext.ExecuteQuery(sql);
 
+    }
+
+    public String getPassword(String customerID){
+        QueryResult queryResult = null;
+        String password = null;
+
+        String sql = "select password from customerPassword where customerID = '" + customerID + "';";
+        queryResult = DbContext.ExecuteSelectQuery(sql);
+
+        try {
+            while(queryResult.resultSet.next()) {
+                password = queryResult.resultSet.getString("password");
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
+
+        queryResult.closeConnection();
+        return password;
     }
 }

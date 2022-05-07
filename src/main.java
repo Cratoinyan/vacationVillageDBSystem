@@ -19,15 +19,22 @@ public class main {
 //        customerManager.addCustomer(customer);
 //        customerManager.removeCustomer("123456789");
 
-        Animator animator = new Animator("333333333", "emp", "1234567890", "emparea");
-        animatorManager.addAnimator(animator);
+        if(customerManager.authenticateCustomer("123456789", "f53ca2e83be8774c")){
+            System.out.println("user exists");
+        }
+        else{
+            System.out.println("wrong password");
+        }
+
+//        Animator animator = new Animator("333333333", "emp", "1234567890", "emparea");
+//        animatorManager.addAnimator(animator);
 
 //        animatorManager.removeAnimator("333333333");
 //
 //        customer = new Customer("111111111","Hürmet",62,03,"5053597195");
 //        customerManager.addCustomer(customer);
 
-        mainPage.db = db;
-        mainPage.view();
+//        mainPage.db = db;
+//        mainPage.view();
     }
 }

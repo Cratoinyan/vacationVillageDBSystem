@@ -3,6 +3,8 @@ package Business.ModelManager;
 import Business.Model.Customer;
 import DB.DAO.CustomerDAO;
 
+import java.util.Objects;
+
 public class CustomerManager {
     private CustomerDAO customerDAO;
 
@@ -16,5 +18,14 @@ public class CustomerManager {
 
     public void removeCustomer(String customerID){
         customerDAO.removeCustomer(customerID);
+    }
+
+    public boolean authenticateCustomer(String ID, String password)
+    {
+        if(Objects.equals(password, customerDAO.getPassword(ID))){
+            return true;
+        }
+
+        return false;
     }
 }
