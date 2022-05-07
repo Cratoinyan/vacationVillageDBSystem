@@ -1,9 +1,15 @@
+import Business.Model.User.Animator;
+import Business.Model.User.Customer;
+import Business.ModelManager.ActivityManager;
 import Business.ModelManager.AnimatorManager;
 import Business.ModelManager.CustomerManager;
+import DB.DAO.ActivityDAO;
 import DB.DAO.AnimatorDAO;
 import DB.DAO.CustomerDAO;
 import DB.DbContext;
 import UI.MainPage;
+
+import java.util.Arrays;
 
 public class main {
     public static void main(String args[]) {
@@ -13,26 +19,32 @@ public class main {
         AnimatorDAO animatorDAO = new AnimatorDAO();
         CustomerManager customerManager = new CustomerManager(customerDAO);
         AnimatorManager animatorManager = new AnimatorManager(animatorDAO);
+        ActivityDAO activityDAO = new ActivityDAO();
+        ActivityManager activityManager = new ActivityManager(activityDAO);
 //        Customer customer = new Customer("123456789","Umut",21,12,"5071132150");
 //        customerManager.addCustomer(customer);
 //        customerManager.removeCustomer("123456789");
 
-        if(customerManager.authenticateCustomer("123456789", "f53ca2e83be8774c")){
-            System.out.println("user exists");
-        }
-        else{
-            System.out.println("wrong password");
-        }
-//
+//        if(customerManager.authenticateCustomer("5071132150", "1e79591fe1ee56e9")){
+//            System.out.println("user exists");
+//        }
+//        else{
+//            System.out.println("wrong password");
+//        }
+
 //        Animator animator = new Animator("333333333", "emp", "1234567890", "emparea");
 //        animatorManager.addAnimator(animator);
+//
+//        if(animatorManager.authenticateAnimator("1234567890", "8025f403c01c5b34")){
+//            System.out.println("animator exists");
+//        }
+//        else{
+//            System.out.println("wrong password");
+//        }
 
-        if(animatorManager.authenticateAnimator("333333333", "9e518f8736ab6eaf")){
-            System.out.println("animator exists");
-        }
-        else{
-            System.out.println("wrong password");
-        }
+        String[] types = activityManager.getMassActivityTypes();
+
+        System.out.println(Arrays.toString(types));
 
 //        animatorManager.removeAnimator("333333333");
 //

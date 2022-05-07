@@ -1,6 +1,6 @@
 package DB.DAO;
 
-import Business.Model.Customer;
+import Business.Model.User.Customer;
 import Business.Model.EmergencyInformation;
 import DB.DbContext;
 

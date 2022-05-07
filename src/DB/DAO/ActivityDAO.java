@@ -3,6 +3,7 @@ package DB.DAO;
 import Business.Model.Activity.IndividualActivity;
 import Business.Model.Activity.MassActivity;
 import DB.DbContext;
+import DB.QueryResult;
 
 public class ActivityDAO {
     public void addIndividualActivity(IndividualActivity individualActivity){
@@ -20,5 +21,13 @@ public class ActivityDAO {
     public void updateMassActivityCapacity(String activityID, String newCapacity){
         String sql = "update massActivity set capacity = '" + newCapacity + "' where activityID = '" + activityID + "';";
         DbContext.ExecuteQuery(sql);
+    }
+
+    public QueryResult getActivityTypes(){
+        String sql = "select activityType from massActivity";
+        QueryResult queryResult;
+
+        queryResult = DbContext.ExecuteSelectQuery(sql);
+        return queryResult;
     }
 }

@@ -21,8 +21,9 @@ public class AnimatorManager {
         animatorDAO.removeAnimator(animatorID);
     }
 
-    public boolean authenticateAnimator(String ID, String password)
+    public boolean authenticateAnimator(String phoneNum, String password)
     {
+        String ID = animatorDAO.getIDFromPhoneNumber(phoneNum);
         if(Objects.equals(password, animatorDAO.getPassword(ID))){
             return true;
         }

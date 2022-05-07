@@ -55,4 +55,24 @@ public class AnimatorDAO {
         queryResult.closeConnection();
         return password;
     }
+
+    public String getIDFromPhoneNumber(String phoneNumber){
+        String ID = null;
+        QueryResult queryResult = null;
+        String sql = "select empID from animator where phoneNum = '" + phoneNumber + "';";
+        queryResult = DbContext.ExecuteSelectQuery(sql);
+
+        try{
+            while (queryResult.resultSet.next()){
+                ID = queryResult.resultSet.getString("empID");
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
+
+        return ID;
+    }
 }

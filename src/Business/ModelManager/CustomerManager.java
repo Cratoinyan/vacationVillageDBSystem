@@ -20,8 +20,9 @@ public class CustomerManager {
         customerDAO.removeCustomer(customerID);
     }
 
-    public boolean authenticateCustomer(String ID, String password)
+    public boolean authenticateCustomer(String phoneNumber, String password)
     {
+        String ID = customerDAO.getIDFromPhoneNumber(phoneNumber);
         if(Objects.equals(password, customerDAO.getPassword(ID))){
             return true;
         }

@@ -48,4 +48,24 @@ public class CustomerDAO {
         queryResult.closeConnection();
         return password;
     }
+
+    public String getIDFromPhoneNumber(String phoneNumber){
+        String ID = null;
+        QueryResult queryResult = null;
+        String sql = "select customerID from customer where phone = '" + phoneNumber + "';";
+        queryResult = DbContext.ExecuteSelectQuery(sql);
+
+        try{
+            while (queryResult.resultSet.next()){
+                ID = queryResult.resultSet.getString("customerID");
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
+
+        return ID;
+    }
 }
