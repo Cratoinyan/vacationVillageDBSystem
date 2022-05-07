@@ -1,4 +1,9 @@
-package UI;
+package UI.AnimatorPage;
+
+import UI.Page;
+import UI.PageActivityList;
+import UI.PageEntry;
+import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,7 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class PageDeleteActivity extends Page{
+public class PageDeleteActivity extends Page {
 	private JButton currentActivitiesButton = new JButton("Activities");
 	private JTextField activityIdToDeleteTextField = new JTextField("Activity ID");
 	private JButton deleteActivityButton = new JButton("Delete");

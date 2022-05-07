@@ -1,4 +1,8 @@
-package UI;
+package UI.AnimatorPage;
+
+import UI.Page;
+import UI.PageEntry;
+import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,10 +10,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class PageAddEquipment extends Page {
-	private JTextField equipPersonSSNTextField = new JTextField("Equip Person SSN");
-	private JTextField nameTextField = new JTextField("Name");
-	private JTextField purposeTextField = new JTextField("Purpose");
+public class PageAddEmergencyInfo extends Page {
+	private JTextField activityNameTextField = new JTextField("Activity Name");
+	private JTextField lockerNumberTextField = new JTextField("Locker Number");
+	private JTextField phoneNumberTextField = new JTextField("Phone Number");
 	private JButton addButton = new JButton("Add");
 	private JButton returnToEntryPageButton = new JButton("Return");
 	
@@ -19,9 +23,9 @@ public class PageAddEquipment extends Page {
 	@Override
 	public void startup()
 	{
-		equipPersonSSNTextField.setBounds(250,71,300,50);
-		nameTextField.setBounds(250,143,300,50);
-		purposeTextField.setBounds(250,215,300,50);
+		activityNameTextField.setBounds(250,71,300,50);
+		lockerNumberTextField.setBounds(250,143,300,50);
+		phoneNumberTextField.setBounds(250,215,300,50);
 		addButton.setBounds(350,342,100,50);
 		returnToEntryPageButton.setBounds(350,414,100,50);
 		
@@ -39,9 +43,9 @@ public class PageAddEquipment extends Page {
 		    }  
 		});
 		
-		components.add(equipPersonSSNTextField);
-		components.add(nameTextField);
-		components.add(purposeTextField);
+		components.add(activityNameTextField);
+		components.add(lockerNumberTextField);
+		components.add(phoneNumberTextField);
 		components.add(addButton);
 		components.add(returnToEntryPageButton);
 	}

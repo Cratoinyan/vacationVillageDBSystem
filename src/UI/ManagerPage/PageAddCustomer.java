@@ -1,15 +1,19 @@
-package UI;
+package UI.ManagerPage;
+
+import UI.Page;
+import UI.PageEntry;
+import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
-public class PageAddAnimator extends Page {
+public class PageAddCustomer extends Page {
 	private JTextField nameTextField = new JTextField("Name");
-	private JTextField phoneNumberTextField = new JTextField("Phone Number");
-	private JTextField expertiseAreaTextField = new JTextField("Expertise Area");
+	private JTextField ageTextField = new JTextField("Age");
+	private JTextField roomNumberTextField = new JTextField("Room Number");
+	private JTextField contactPhoneTextField = new JTextField("Contact Phone");
 	private JButton addButton = new JButton("Add");
 	private JButton returnToEntryPageButton = new JButton("Return");
 	
@@ -19,11 +23,12 @@ public class PageAddAnimator extends Page {
 	@Override
 	public void startup()
 	{
-		nameTextField.setBounds(250,79,300,50);
-		phoneNumberTextField.setBounds(250,191,300,50);
-		expertiseAreaTextField.setBounds(250,303,300,50);
-		addButton.setBounds(350,406,100,50);
-		returnToEntryPageButton.setBounds(350,494,100,50);
+		nameTextField.setBounds(250, 50, 300, 50);
+		ageTextField.setBounds(250,126,300,50);
+		roomNumberTextField.setBounds(250, 202, 300, 50);
+		contactPhoneTextField.setBounds(250, 278, 300, 50);
+		addButton.setBounds(350,430,100,50);
+		returnToEntryPageButton.setBounds(350,506,100,50);
 		
 		addButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
@@ -40,8 +45,9 @@ public class PageAddAnimator extends Page {
 		});
 		
 		components.add(nameTextField);
-		components.add(phoneNumberTextField);
-		components.add(expertiseAreaTextField);
+		components.add(ageTextField);
+		components.add(roomNumberTextField);
+		components.add(contactPhoneTextField);
 		components.add(addButton);
 		components.add(returnToEntryPageButton);
 	}

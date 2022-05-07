@@ -7,13 +7,12 @@ import DB.DAO.ActivityDAO;
 import DB.DAO.AnimatorDAO;
 import DB.DAO.CustomerDAO;
 import DB.DbContext;
-import UI.MainPage;
+import UI.Application;
 
 import java.util.Arrays;
 
 public class main {
     public static void main(String args[]) {
-        MainPage mainPage = new MainPage();
         DbContext db = new DbContext();
         CustomerDAO customerDAO = new CustomerDAO();
         AnimatorDAO animatorDAO = new AnimatorDAO();
@@ -21,6 +20,10 @@ public class main {
         AnimatorManager animatorManager = new AnimatorManager(animatorDAO);
         ActivityDAO activityDAO = new ActivityDAO();
         ActivityManager activityManager = new ActivityManager(activityDAO);
+
+        Application application = new Application();
+        application.startup();
+
 //        Customer customer = new Customer("123456789","Umut",21,12,"5071132150");
 //        customerManager.addCustomer(customer);
 //        customerManager.removeCustomer("123456789");

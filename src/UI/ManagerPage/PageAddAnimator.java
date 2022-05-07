@@ -1,4 +1,8 @@
-package UI;
+package UI.ManagerPage;
+
+import UI.Page;
+import UI.PageEntry;
+import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,11 +10,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class PageAddEquipPerson extends Page {
-	private JTextField ssnTextField = new JTextField("SSN");
+public class PageAddAnimator extends Page {
 	private JTextField nameTextField = new JTextField("Name");
-	private JTextField surnameTextField = new JTextField("Surname");
-	private JTextField contactPhoneTextField = new JTextField("Contact Phone");
+	private JTextField phoneNumberTextField = new JTextField("Phone Number");
+	private JTextField expertiseAreaTextField = new JTextField("Expertise Area");
 	private JButton addButton = new JButton("Add");
 	private JButton returnToEntryPageButton = new JButton("Return");
 	
@@ -20,12 +23,11 @@ public class PageAddEquipPerson extends Page {
 	@Override
 	public void startup()
 	{
-		ssnTextField.setBounds(250,57,300,50);
-		nameTextField.setBounds(250,144,300,50);
-		surnameTextField.setBounds(250,231,300,50);
-		contactPhoneTextField.setBounds(250,318,300,50);
-		addButton.setBounds(350,405,100,50);
-		returnToEntryPageButton.setBounds(350,492,100,50);
+		nameTextField.setBounds(250,79,300,50);
+		phoneNumberTextField.setBounds(250,191,300,50);
+		expertiseAreaTextField.setBounds(250,303,300,50);
+		addButton.setBounds(350,406,100,50);
+		returnToEntryPageButton.setBounds(350,494,100,50);
 		
 		addButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
@@ -41,10 +43,9 @@ public class PageAddEquipPerson extends Page {
 		    }  
 		});
 		
-		components.add(ssnTextField);
 		components.add(nameTextField);
-		components.add(surnameTextField);
-		components.add(contactPhoneTextField);
+		components.add(phoneNumberTextField);
+		components.add(expertiseAreaTextField);
 		components.add(addButton);
 		components.add(returnToEntryPageButton);
 	}

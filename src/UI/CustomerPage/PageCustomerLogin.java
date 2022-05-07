@@ -1,16 +1,25 @@
-package UI;
+package UI.CustomerPage;
+
+import Business.ModelManager.CustomerManager;
+import DB.DAO.CustomerDAO;
+import UI.CustomerPage.PageCustomerAppointment;
+import UI.Page;
+import UI.PageEntry;
+import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class PageCustomerLogin extends Page {
 	private JTextField phoneNumberTextField = new JTextField("Phone Number");
-	private JTextField passwordTextField = new JTextField("Password");
+	private JTextField passwordTextField = new JPasswordField("Password");
 	private JButton loginButton = new JButton("Login");
 	private JButton returnToEntryPageButton = new JButton("Return");
+
+	private CustomerDAO customerDAO = new CustomerDAO();
+	private CustomerManager customerManager = new CustomerManager(customerDAO);
 	
 	//Links
 	public PageEntry entryPage = null;
@@ -27,8 +36,10 @@ public class PageCustomerLogin extends Page {
 		loginButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Login button is clicked.");
-				 frame.clear();
-				 frame.display(customerAppointmentPage);
+				 if(customerManager.authenticateCustomer(phoneNumberTextField.getText(),passwordTextField.getText())){
+					 frame.clear();
+					 frame.display(customerAppointmentPage);
+				 }
 		    }  
 		});
 		

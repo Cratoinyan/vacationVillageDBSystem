@@ -1,4 +1,8 @@
-package UI;
+package UI.AnimatorPage;
+
+import UI.Page;
+import UI.PageEntry;
+import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

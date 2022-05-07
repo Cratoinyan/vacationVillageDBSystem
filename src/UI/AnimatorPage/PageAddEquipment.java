@@ -1,15 +1,19 @@
-package UI;
+package UI.AnimatorPage;
+
+import UI.Page;
+import UI.PageEntry;
+import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
-public class PageAddCustomer extends Page {
+public class PageAddEquipment extends Page {
+	private JTextField equipPersonSSNTextField = new JTextField("Equip Person SSN");
 	private JTextField nameTextField = new JTextField("Name");
-	private JTextField ageTextField = new JTextField("Age");
-	private JTextField roomNumberTextField = new JTextField("Room Number");
-	private JTextField contactPhoneTextField = new JTextField("Contact Phone");
+	private JTextField purposeTextField = new JTextField("Purpose");
 	private JButton addButton = new JButton("Add");
 	private JButton returnToEntryPageButton = new JButton("Return");
 	
@@ -19,12 +23,11 @@ public class PageAddCustomer extends Page {
 	@Override
 	public void startup()
 	{
-		nameTextField.setBounds(250, 50, 300, 50);
-		ageTextField.setBounds(250,126,300,50);
-		roomNumberTextField.setBounds(250, 202, 300, 50);
-		contactPhoneTextField.setBounds(250, 278, 300, 50);
-		addButton.setBounds(350,430,100,50);
-		returnToEntryPageButton.setBounds(350,506,100,50);
+		equipPersonSSNTextField.setBounds(250,71,300,50);
+		nameTextField.setBounds(250,143,300,50);
+		purposeTextField.setBounds(250,215,300,50);
+		addButton.setBounds(350,342,100,50);
+		returnToEntryPageButton.setBounds(350,414,100,50);
 		
 		addButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
@@ -40,10 +43,9 @@ public class PageAddCustomer extends Page {
 		    }  
 		});
 		
+		components.add(equipPersonSSNTextField);
 		components.add(nameTextField);
-		components.add(ageTextField);
-		components.add(roomNumberTextField);
-		components.add(contactPhoneTextField);
+		components.add(purposeTextField);
 		components.add(addButton);
 		components.add(returnToEntryPageButton);
 	}

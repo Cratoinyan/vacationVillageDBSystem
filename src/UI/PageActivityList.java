@@ -1,5 +1,8 @@
 package UI;
 
+import UI.AnimatorPage.PageDeleteActivity;
+import UI.CustomerPage.PageCustomerAppointment;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
