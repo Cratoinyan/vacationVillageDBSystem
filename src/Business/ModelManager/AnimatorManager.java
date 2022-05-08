@@ -23,7 +23,7 @@ public class AnimatorManager {
 
     public boolean authenticateAnimator(String phoneNum, String password)
     {
-        String ID = animatorDAO.getIDFromPhoneNumber(phoneNum);
+        Integer ID = animatorDAO.getIDFromPhoneNumber(phoneNum);
         if(Objects.equals(password, animatorDAO.getPassword(ID))){
             return true;
         }

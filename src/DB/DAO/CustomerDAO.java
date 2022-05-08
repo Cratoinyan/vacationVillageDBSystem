@@ -9,7 +9,7 @@ import DB.QueryResult;
 public class CustomerDAO {
     public void addCustomer(Customer customer)
     {
-        String sql = "insert into customer values('" + customer.getID() + "', '" + customer.getName() + "', " + customer.getAge() + ", "
+        String sql = "insert into customer(name, age, roomNum, phone) values('" + customer.getName() + "', " + customer.getAge() + ", "
                 + customer.getRoomNumber() + ", '" + customer.getPhoneNumber() + "');";
         DbContext.ExecuteQuery(sql);
     }

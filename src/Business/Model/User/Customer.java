@@ -7,8 +7,7 @@ public class Customer {
     private int roomNumber;
     private String phoneNumber;
 
-    public Customer(String ID, String name, int age, int roomNumber, String phoneNumber) {
-        this.ID = ID;
+    public Customer(String name, int age, int roomNumber, String phoneNumber) {
         this.name = name;
         this.age = age;
         this.roomNumber = roomNumber;

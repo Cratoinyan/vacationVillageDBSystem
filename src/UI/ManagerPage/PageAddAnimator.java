@@ -1,5 +1,8 @@
 package UI.ManagerPage;
 
+import Business.Model.User.Animator;
+import Business.ModelManager.AnimatorManager;
+import DB.DAO.AnimatorDAO;
 import UI.Page;
 import UI.PageEntry;
 import UI.Print;
@@ -16,7 +19,10 @@ public class PageAddAnimator extends Page {
 	private JTextField expertiseAreaTextField = new JTextField("Expertise Area");
 	private JButton addButton = new JButton("Add");
 	private JButton returnToEntryPageButton = new JButton("Return");
-	
+
+	private AnimatorDAO animatorDAO = new AnimatorDAO();
+	private AnimatorManager animatorManager = new AnimatorManager(animatorDAO);
+
 	//Links
 	public PageEntry entryPage = null;
 	
@@ -32,7 +38,8 @@ public class PageAddAnimator extends Page {
 		addButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Add button is clicked.");
-		    }  
+				 animatorManager.addAnimator(new Animator(nameTextField.getText(), phoneNumberTextField.getText(), expertiseAreaTextField.getText()));
+		    }
 		});
 		
 		returnToEntryPageButton.addActionListener(new ActionListener() {

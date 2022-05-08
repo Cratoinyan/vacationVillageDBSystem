@@ -1,5 +1,8 @@
 package UI.ManagerPage;
 
+import Business.Model.User.Customer;
+import Business.ModelManager.CustomerManager;
+import DB.DAO.CustomerDAO;
 import UI.Page;
 import UI.PageEntry;
 import UI.Print;
@@ -16,6 +19,9 @@ public class PageAddCustomer extends Page {
 	private JTextField contactPhoneTextField = new JTextField("Contact Phone");
 	private JButton addButton = new JButton("Add");
 	private JButton returnToEntryPageButton = new JButton("Return");
+
+	private CustomerDAO customerDAO = new CustomerDAO();
+	private CustomerManager customerManager = new CustomerManager(customerDAO);
 	
 	//Links
 	public PageEntry entryPage = null;
@@ -33,6 +39,8 @@ public class PageAddCustomer extends Page {
 		addButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Add button is clicked.");
+				 customerManager.addCustomer(new Customer(nameTextField.getText(), Integer.parseInt(ageTextField.getText()),
+						 Integer.parseInt(roomNumberTextField.getText()), contactPhoneTextField.getText()));
 		    }  
 		});
 		

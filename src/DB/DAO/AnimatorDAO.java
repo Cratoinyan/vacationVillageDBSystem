@@ -7,7 +7,7 @@ import DB.QueryResult;
 public class AnimatorDAO {
 
     public void addAnimator(Animator animator){
-        String sql = "insert into animator values('" + animator.getID() + "','" + animator.getName() + "','" +
+        String sql = "insert into animator(name, phoneNum, expArea) values('" + animator.getName() + "','" +
                 animator.getPhoneNum() + "','" + animator.getExpArea() + "');";
         DbContext.ExecuteQuery(sql);
     }
@@ -34,11 +34,11 @@ public class AnimatorDAO {
         DbContext.ExecuteQuery(sql);
     }
 
-    public String getPassword(String animatorID){
+    public String getPassword(Integer animatorID){
         QueryResult queryResult = null;
         String password = null;
 
-        String sql = "select password from animatorPassword where animatorID = '" + animatorID + "';";
+        String sql = "select password from animatorPassword where animatorID = " + animatorID + ";";
         queryResult = DbContext.ExecuteSelectQuery(sql);
 
         try {
@@ -56,15 +56,15 @@ public class AnimatorDAO {
         return password;
     }
 
-    public String getIDFromPhoneNumber(String phoneNumber){
-        String ID = null;
+    public Integer getIDFromPhoneNumber(String phoneNumber){
+        Integer ID = null;
         QueryResult queryResult = null;
         String sql = "select empID from animator where phoneNum = '" + phoneNumber + "';";
         queryResult = DbContext.ExecuteSelectQuery(sql);
 
         try{
             while (queryResult.resultSet.next()){
-                ID = queryResult.resultSet.getString("empID");
+                ID = queryResult.resultSet.getInt("empID");
             }
         }
         catch (Exception e){

@@ -1,23 +1,22 @@
 package Business.Model.User;
 
 public class Animator {
-    private String ID;
+    private Integer ID;
     private String name;
     private String phoneNum;
     private String expArea;
 
-    public Animator(String ID, String name, String phoneNum, String expArea) {
-        this.ID = ID;
+    public Animator(String name, String phoneNum, String expArea) {
         this.name = name;
         this.phoneNum = phoneNum;
         this.expArea = expArea;
     }
 
-    public String getID() {
+    public Integer getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(Integer ID) {
         this.ID = ID;
     }
 

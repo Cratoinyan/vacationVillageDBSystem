@@ -1,13 +1,13 @@
 package Business.Model.User;
 
 public class EquipPerson {
-    private String ID;
+    private Integer ID;
     private String ssn;
     private String name;
     private String surname;
     private String phoneNum;
 
-    public EquipPerson(String ID, String ssn, String name, String surname, String phoneNum) {
+    public EquipPerson(Integer ID, String ssn, String name, String surname, String phoneNum) {
         this.ID = ID;
         this.ssn = ssn;
         this.name = name;
@@ -15,11 +15,11 @@ public class EquipPerson {
         this.phoneNum = phoneNum;
     }
 
-    public String getID() {
+    public Integer getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(Integer ID) {
         this.ID = ID;
     }
 
