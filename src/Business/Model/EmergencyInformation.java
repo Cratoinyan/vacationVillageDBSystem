@@ -1,21 +1,21 @@
 package Business.Model;
 
 public class EmergencyInformation {
-    private String activityID;
+    private Integer activityID;
     private String phoneNumber;
-    private String lockerNumber;
+    private Integer lockerNumber;
 
-    public EmergencyInformation(String activityID, String phoneNumber, String lockerNumber) {
+    public EmergencyInformation(Integer activityID, String phoneNumber, Integer lockerNumber) {
         this.activityID = activityID;
         this.phoneNumber = phoneNumber;
         this.lockerNumber = lockerNumber;
     }
 
-    public String getActivityID() {
+    public Integer getActivityID() {
         return activityID;
     }
 
-    public void setActivityID(String activityID) {
+    public void setActivityID(Integer activityID) {
         this.activityID = activityID;
     }
 
@@ -27,11 +27,11 @@ public class EmergencyInformation {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getLockerNumber() {
+    public Integer getLockerNumber() {
         return lockerNumber;
     }
 
-    public void setLockerNumber(String lockerNumber) {
+    public void setLockerNumber(Integer lockerNumber) {
         this.lockerNumber = lockerNumber;
     }
 }

@@ -1,5 +1,7 @@
 package UI.AnimatorPage;
 
+import Business.ModelManager.ActivityManager;
+import DB.DAO.ActivityDAO;
 import UI.Page;
 import UI.PageActivityList;
 import UI.PageEntry;
@@ -16,6 +18,8 @@ public class PageDeleteActivity extends Page {
 	private JTextField activityIdToDeleteTextField = new JTextField("Activity ID");
 	private JButton deleteActivityButton = new JButton("Delete");
 	private JButton returnToEntryPageButton = new JButton("Return");
+
+	ActivityManager activityManager = new ActivityManager(new ActivityDAO());
 
 	//Links
 	public PageEntry entryPage = null;
@@ -41,6 +45,7 @@ public class PageDeleteActivity extends Page {
 		deleteActivityButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Delete button is clicked.");
+				 activityManager.deleteActivity(Integer.parseInt(activityIdToDeleteTextField.getText()));
 		    }  
 		});
 		

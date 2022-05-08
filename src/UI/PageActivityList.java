@@ -1,5 +1,7 @@
 package UI;
 
+import Business.ModelManager.ActivityManager;
+import DB.DAO.ActivityDAO;
 import UI.AnimatorPage.PageDeleteActivity;
 import UI.CustomerPage.PageCustomerAppointment;
 
@@ -16,6 +18,8 @@ public class PageActivityList extends Page {
 	private JButton currentActivitiesRefreshButton = new JButton("Refresh");
 	private JButton returnToCallerPage = new JButton("Return");
 	private int callerId = 0;
+
+	private ActivityManager activityManager = new ActivityManager(new ActivityDAO());
 	
 	//Links
 	public PageCustomerAppointment customerAppointmentPage = null;
@@ -33,7 +37,7 @@ public class PageActivityList extends Page {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Current activities refresh button is clicked.");
 				 
-				 String currentActivities = "Tenis : 14.00\n Basketball: 15.00\n";
+				 String currentActivities = activityManager.getActivityInfo();
 				 currentActivitiesTextArea.setText(currentActivities);
 		    }  
 		});

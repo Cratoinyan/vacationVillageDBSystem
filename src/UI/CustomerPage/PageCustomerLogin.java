@@ -37,6 +37,7 @@ public class PageCustomerLogin extends Page {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Login button is clicked.");
 				 if(customerManager.authenticateCustomer(phoneNumberTextField.getText(),passwordTextField.getText())){
+					 SessionInformation.customerID = customerDAO.getIDFromPhoneNumber(phoneNumberTextField.getText());
 					 frame.clear();
 					 frame.display(customerAppointmentPage);
 				 }

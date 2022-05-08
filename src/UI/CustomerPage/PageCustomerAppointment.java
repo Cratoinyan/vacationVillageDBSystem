@@ -1,5 +1,9 @@
 package UI.CustomerPage;
 
+import Business.Model.Appointment;
+import Business.ModelManager.ActivityManager;
+import DB.DAO.ActivityDAO;
+import DB.DAO.AppointmentDAO;
 import UI.Page;
 import UI.PageActivityList;
 import UI.PageEntry;
@@ -27,6 +31,9 @@ public class PageCustomerAppointment extends Page {
 	private JButton mSubmitButton = new JButton("Submit");
 	private JButton mActivityListButton = new JButton("Activities");
 	private JButton returnToEntryPageButton = new JButton("Return");
+
+	private ActivityManager activityManager = new ActivityManager(new ActivityDAO());
+	private AppointmentDAO appointmentDAO = new AppointmentDAO();
 	
 	//Links
 	public PageEntry entryPage = null;
@@ -51,6 +58,9 @@ public class PageCustomerAppointment extends Page {
 		iSubmitButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Individual activity submit button is clicked.");
+				 String activityInfo[] = activityManager.getIndActivityInfo(iDateTextField.getText(), iHourTextField.getText());
+				 appointmentDAO.addAppointment(new Appointment(SessionInformation.customerID,
+						 Integer.parseInt(activityInfo[0]),Integer.parseInt(activityInfo[1]), iDateTextField.getText(), iHourTextField.getText()));
 		    }  
 		});
 		
@@ -59,7 +69,7 @@ public class PageCustomerAppointment extends Page {
 				 Print.info("Activity type refresh button is clicked.");
 				 
 				 //ComboBox options must fetched from database and show its elements respectively.
-				 String comboBoxOptions[] = {"C","C++","C#","Java","Python"};
+				 String comboBoxOptions[] = activityManager.getMassActivityTypes();
 				 mActivityTypeComboBox.setModel(new DefaultComboBoxModel<String>(comboBoxOptions));
 		    }  
 		});
@@ -67,6 +77,9 @@ public class PageCustomerAppointment extends Page {
 		mSubmitButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Mass activity submit button is clicked.");
+				 String activtiyInfo[] = activityManager.getMassActivityInfo(mDateTextField.getText(), mHourTextField.getText());
+				 appointmentDAO.addAppointment(new Appointment(SessionInformation.customerID,
+						 Integer.parseInt(activtiyInfo[0]),Integer.parseInt(activtiyInfo[1]),mDateTextField.getText(),mHourTextField.getText()));
 		    }  
 		});
 		

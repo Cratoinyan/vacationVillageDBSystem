@@ -8,13 +8,13 @@ public class EmergencyInformationDAO {
 
     public void addEmergencyInformation(EmergencyInformation emergencyInformation)
     {
-        String sql = "insert into EmergencyInformation values('" + emergencyInformation.getActivityID() + "', '"
-                + emergencyInformation.getPhoneNumber() + "', " + emergencyInformation.getLockerNumber() + "');";
+        String sql = "insert into EmergencyInformation values(" + emergencyInformation.getActivityID() + ", '"
+                + emergencyInformation.getPhoneNumber() + "', " + emergencyInformation.getLockerNumber() + ");";
         DbContext.ExecuteQuery(sql);
     }
 
     public void removeEmergencyInformation(String activityID){
-        String sql = "delete from EmergencyInformation where activityID = '" + activityID + "';";
+        String sql = "delete from EmergencyInformation where activityID = " + activityID + ";";
         DbContext.ExecuteQuery(sql);
     }
 }

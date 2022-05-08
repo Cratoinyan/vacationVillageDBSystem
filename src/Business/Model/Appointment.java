@@ -1,32 +1,34 @@
 package Business.Model;
 
 public class Appointment {
-    private String customerID;
-    private String activityID;
+    private Integer customerID;
+    private Integer activityID;
     private int animatorID;
-    private String dateAndHour;
+    private String date;
+    private String hour;
 
 
-    public Appointment(String customerID, String activityID, int animatorID, String dateAndHour) {
+    public Appointment(Integer customerID, Integer activityID, int animatorID, String date, String hour) {
         this.customerID = customerID;
         this.activityID = activityID;
         this.animatorID = animatorID;
-        this.dateAndHour = dateAndHour;
+        this.date = date;
+        this.hour = hour;
     }
 
-    public String getCustomerID() {
+    public Integer getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(String customerID) {
+    public void setCustomerID(Integer customerID) {
         this.customerID = customerID;
     }
 
-    public String getActivityID() {
+    public Integer getActivityID() {
         return activityID;
     }
 
-    public void setActivityID(String activityID) {
+    public void setActivityID(Integer activityID) {
         this.activityID = activityID;
     }
 
@@ -38,11 +40,19 @@ public class Appointment {
         this.animatorID = animatorID;
     }
 
-    public String getDateAndHour() {
-        return dateAndHour;
+    public String getDate() {
+        return date;
     }
 
-    public void setDateAndHour(String dateAndHour) {
-        this.dateAndHour = dateAndHour;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getHour() {
+        return hour;
+    }
+
+    public void setHour(String hour) {
+        this.hour = hour;
     }
 }
