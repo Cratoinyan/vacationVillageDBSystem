@@ -36,6 +36,7 @@ public class PageAnimatorLogin extends Page {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Login button is clicked.");
 				 if(animatorManager.authenticateAnimator(phoneNumberTextField.getText(), passwordTextField.getText())) {
+					 SessionInformation.animatorID = animatorDAO.getIDFromPhoneNumber(phoneNumberTextField.getText());
 					 frame.clear();
 					 frame.display(animatorPage);
 				 }

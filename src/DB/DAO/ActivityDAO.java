@@ -7,14 +7,16 @@ import DB.QueryResult;
 
 public class ActivityDAO {
     public void addIndividualActivity(IndividualActivity individualActivity){
-        String sql = "call addIndActivity('" + individualActivity.getID() + "','"+ individualActivity.getName() + "','" + individualActivity.getLink() +"','" +
-                individualActivity.getDate() + "','" + individualActivity.getHour() + "','" + individualActivity.getAge() + "');";
+        String sql = "call addIndActivity('" + individualActivity.getName() + "','" + individualActivity.getLink() +"','" +
+                individualActivity.getDate() + "','" + individualActivity.getHour() + "'," + individualActivity.getAnimatorID() + ",'" +
+                individualActivity.getAge() + "');";
         DbContext.ExecuteQuery(sql);
     }
 
     public void addMassActivity(MassActivity massActivity){
-        String sql = "call addIndActivity('" + massActivity.getID() + "','"+ massActivity.getName() + "','" + massActivity.getLink() +"','" +
-                massActivity.getDate() + "','" + massActivity.getHour() + "','" + massActivity.getType() + "','" + massActivity.getCapacity() + "');";
+        String sql = "call addMassAct('" + massActivity.getName() + "','" + massActivity.getLink() +"','" +
+                massActivity.getDate() + "','" + massActivity.getHour() + "'," + massActivity.getAnimatorID() + ",'" +
+                massActivity.getType() + "','" + massActivity.getCapacity() + "');";
         DbContext.ExecuteQuery(sql);
     }
 

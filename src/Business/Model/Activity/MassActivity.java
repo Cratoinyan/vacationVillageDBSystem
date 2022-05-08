@@ -1,13 +1,11 @@
 package Business.Model.Activity;
 
-import Business.Model.Activity.Activity;
-
 public class MassActivity extends Activity {
     private String type;
     private String capacity;
 
-    public MassActivity(String ID, String name, String link, String date, String hour, String animatorID, String type, String capacity) {
-        super(ID, name, link, date, hour, animatorID);
+    public MassActivity(String name, String link, String date, String hour, Integer animatorID, String type, String capacity) {
+        super(name, link, date, hour, animatorID);
         this.type = type;
         this.capacity = capacity;
     }

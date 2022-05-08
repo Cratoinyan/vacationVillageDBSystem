@@ -27,17 +27,18 @@ public class CustomerDAO {
 
     }
 
-    public String getPassword(String customerID){
+    public String getPassword(Integer customerID){
         QueryResult queryResult = null;
         String password = null;
 
-        String sql = "select password from customerPassword where customerID = '" + customerID + "';";
+        String sql = "select password from customerPassword where customerID = " + customerID + ";";
         queryResult = DbContext.ExecuteSelectQuery(sql);
 
         try {
             while(queryResult.resultSet.next()) {
                 password = queryResult.resultSet.getString("password");
             }
+            System.out.println(password);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -49,15 +50,15 @@ public class CustomerDAO {
         return password;
     }
 
-    public String getIDFromPhoneNumber(String phoneNumber){
-        String ID = null;
+    public Integer getIDFromPhoneNumber(String phoneNumber){
+        Integer ID = null;
         QueryResult queryResult = null;
         String sql = "select customerID from customer where phone = '" + phoneNumber + "';";
         queryResult = DbContext.ExecuteSelectQuery(sql);
 
         try{
             while (queryResult.resultSet.next()){
-                ID = queryResult.resultSet.getString("customerID");
+                ID = Integer.parseInt(queryResult.resultSet.getString("customerID"));
             }
         }
         catch (Exception e){

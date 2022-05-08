@@ -1,5 +1,7 @@
 package UI.AnimatorPage;
 
+import Business.Model.Equipment;
+import DB.DAO.EquipmentDAO;
 import UI.Page;
 import UI.PageEntry;
 import UI.Print;
@@ -16,6 +18,8 @@ public class PageAddEquipment extends Page {
 	private JTextField purposeTextField = new JTextField("Purpose");
 	private JButton addButton = new JButton("Add");
 	private JButton returnToEntryPageButton = new JButton("Return");
+
+	private EquipmentDAO equipmentDAO = new EquipmentDAO();
 	
 	//Links
 	public PageEntry entryPage = null;
@@ -32,6 +36,8 @@ public class PageAddEquipment extends Page {
 		addButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Add button is clicked.");
+				 equipmentDAO.addEquipment(new Equipment(equipPersonSSNTextField.getText(), nameTextField.getText(),
+						 purposeTextField.getText()));
 		    }  
 		});
 		

@@ -1,13 +1,11 @@
 package Business.Model.Activity;
 
-import Business.Model.Activity.Activity;
-
 public class IndividualActivity extends Activity {
 
     private String age;
 
-    public IndividualActivity(String ID, String name, String link, String date, String hour, String animatorID, String ID1, String age) {
-        super(ID, name, link, date, hour, animatorID);
+    public IndividualActivity(String name, String link, String date, String hour, Integer animatorID, String age) {
+        super(name, link, date, hour, animatorID);
         this.age = age;
     }
 

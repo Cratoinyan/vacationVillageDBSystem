@@ -22,7 +22,7 @@ public class CustomerManager {
 
     public boolean authenticateCustomer(String phoneNumber, String password)
     {
-        String ID = customerDAO.getIDFromPhoneNumber(phoneNumber);
+        Integer ID = customerDAO.getIDFromPhoneNumber(phoneNumber);
         if(Objects.equals(password, customerDAO.getPassword(ID))){
             return true;
         }
