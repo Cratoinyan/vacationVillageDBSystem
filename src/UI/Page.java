@@ -12,12 +12,7 @@ public class Page {
 	{
 		
 	}
-	
-	public void shutdown()
-	{
-		
-	}
-	
+
 	public ArrayList<JComponent> getComponents()
 	{
 		return components;

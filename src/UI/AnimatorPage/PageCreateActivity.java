@@ -6,7 +6,6 @@ import Business.ModelManager.ActivityManager;
 import DB.DAO.ActivityDAO;
 import UI.Page;
 import UI.PageEntry;
-import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -57,7 +56,6 @@ public class PageCreateActivity extends Page {
 		
 		iSubmitButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Individual submit button is clicked.");
 				 activityManager.addIndividualActivity(new IndividualActivity(iNameTextField.getText(),iInternetLinkTextField.getText(),
 						 activityDate.getText(),activityHour.getText(), SessionInformation.animatorID,iAgeRequirement.getText()));
 		    }
@@ -65,7 +63,6 @@ public class PageCreateActivity extends Page {
 		
 		mSubmitButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Mass submit button is clicked.");
 				 activityManager.addMassActivity(new MassActivity(mNameTextField.getText(), mInternetLinkTextField.getText(),
 						 activityDate.getText(), activityHour.getText(), SessionInformation.animatorID, mActivitiyType.getText(), mCapacityInput.getText()));
 		    }  
@@ -73,7 +70,6 @@ public class PageCreateActivity extends Page {
 		
 		returnToEntryPageButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Return to entry page button is clicked.");
 				 frame.clear();
 				 frame.display(entryPage);
 		    }  

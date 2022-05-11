@@ -35,8 +35,7 @@ public class PageActivityList extends Page {
 		
 		currentActivitiesRefreshButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Current activities refresh button is clicked.");
-				 
+
 				 String currentActivities = activityManager.getActivityInfo();
 				 currentActivitiesTextArea.setText(currentActivities);
 		    }  
@@ -44,7 +43,6 @@ public class PageActivityList extends Page {
 		
 		returnToCallerPage.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Return to caller button is clicked.");
 				 if(callerId == 0)
 				 {
 					 frame.clear();

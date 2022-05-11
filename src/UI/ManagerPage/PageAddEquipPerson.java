@@ -5,7 +5,6 @@ import Business.ModelManager.EquipPersonManager;
 import DB.DAO.EquipPersonDAO;
 import UI.Page;
 import UI.PageEntry;
-import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -41,7 +40,6 @@ public class PageAddEquipPerson extends Page {
 		
 		addButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Add button is clicked.");
 				 equipPersonManager.addEquipPerson(new EquipPerson(Integer.parseInt(idTextField.getText()),ssnTextField.getText(),
 						 nameTextField.getText(),ssnTextField.getText(), contactPhoneTextField.getText()));
 		    }  
@@ -49,7 +47,6 @@ public class PageAddEquipPerson extends Page {
 		
 		returnToEntryPageButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Return to entry page button is clicked.");
 				 frame.clear();
 				 frame.display(entryPage);
 		    }  

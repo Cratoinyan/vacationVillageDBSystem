@@ -2,10 +2,8 @@ package UI.CustomerPage;
 
 import Business.ModelManager.CustomerManager;
 import DB.DAO.CustomerDAO;
-import UI.CustomerPage.PageCustomerAppointment;
 import UI.Page;
 import UI.PageEntry;
-import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,8 +32,7 @@ public class PageCustomerLogin extends Page {
 		returnToEntryPageButton.setBounds(350,400,100,50);
 		
 		loginButton.addActionListener(new ActionListener() {
-			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Login button is clicked.");
+			 public void actionPerformed(ActionEvent e){
 				 if(customerManager.authenticateCustomer(phoneNumberTextField.getText(),passwordTextField.getText())){
 					 SessionInformation.customerID = customerDAO.getIDFromPhoneNumber(phoneNumberTextField.getText());
 					 frame.clear();
@@ -45,8 +42,7 @@ public class PageCustomerLogin extends Page {
 		});
 		
 		returnToEntryPageButton.addActionListener(new ActionListener() {
-			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Return to entry page button is clicked.");
+			 public void actionPerformed(ActionEvent e){
 				 frame.clear();
 				 frame.display(entryPage);
 		    }  

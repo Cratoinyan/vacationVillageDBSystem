@@ -28,7 +28,6 @@ public class PageEntry extends Page {
 		
 		managerLoginButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Manager login button is clicked.");
 				 frame.clear();
 				 frame.display(managerPage);
 		    }  
@@ -36,7 +35,6 @@ public class PageEntry extends Page {
 		
 		customerLoginButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Customer login button is clicked.");
 				 frame.clear();
 				 frame.display(customerLoginPage);
 		    }  
@@ -44,7 +42,6 @@ public class PageEntry extends Page {
 		
 		animatorLoginButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Animator login button is clicked.");
 				 frame.clear();
 				 frame.display(animatorLoginPage);
 		    }  

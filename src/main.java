@@ -45,9 +45,6 @@ public class main {
 //            System.out.println("wrong password");
 //        }
 
-        String[] types = activityManager.getMassActivityTypes();
-
-        System.out.println(Arrays.toString(types));
 
 //        animatorManager.removeAnimator("333333333");
 //

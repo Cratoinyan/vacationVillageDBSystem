@@ -4,7 +4,6 @@ import Business.Model.Equipment;
 import DB.DAO.EquipmentDAO;
 import UI.Page;
 import UI.PageEntry;
-import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,7 +34,6 @@ public class PageAddEquipment extends Page {
 		
 		addButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Add button is clicked.");
 				 equipmentDAO.addEquipment(new Equipment(equipPersonSSNTextField.getText(), nameTextField.getText(),
 						 purposeTextField.getText()));
 		    }  
@@ -43,7 +41,6 @@ public class PageAddEquipment extends Page {
 		
 		returnToEntryPageButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Return to entry page button is clicked.");
 				 frame.clear();
 				 frame.display(entryPage);
 		    }  

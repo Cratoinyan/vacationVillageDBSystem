@@ -9,7 +9,6 @@ import DB.DAO.CustomerDAO;
 import UI.Page;
 import UI.PageActivityList;
 import UI.PageEntry;
-import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -59,8 +58,7 @@ public class PageCustomerAppointment extends Page {
 		returnToEntryPageButton.setBounds(350,484,100,50);
 		
 		iSubmitButton.addActionListener(new ActionListener() {
-			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Individual activity submit button is clicked.");
+			 public void actionPerformed(ActionEvent e){
 				 String activityInfo[] = activityManager.getIndActivityInfo(iDateTextField.getText(), iHourTextField.getText());
 
 				 int customerAge = customerManager.getAge(String.valueOf(SessionInformation.customerID));
@@ -75,10 +73,8 @@ public class PageCustomerAppointment extends Page {
 		});
 		
 		mActivityTypeRefreshButton.addActionListener(new ActionListener() {
-			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Activity type refresh button is clicked.");
-				 
-				 //ComboBox options must fetched from database and show its elements respectively.
+			 public void actionPerformed(ActionEvent e){
+
 				 String comboBoxOptions[] = activityManager.getMassActivityTypes();
 				 mActivityTypeComboBox.setModel(new DefaultComboBoxModel<String>(comboBoxOptions));
 		    }  
@@ -90,7 +86,6 @@ public class PageCustomerAppointment extends Page {
 				 String date = mDateTextField.getText();
 				 String hour = mHourTextField.getText();
 
-				 Print.info("Mass activity submit button is clicked.");
 				 String activtiyInfo[] = activityManager.getMassActivityInfo(date, hour);
 
 				 if(activityManager.verifyMassActivityCapacity(date, hour)){
@@ -103,8 +98,7 @@ public class PageCustomerAppointment extends Page {
 		});
 		
 		mActivityListButton.addActionListener(new ActionListener() {
-			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Activity list button is clicked.");
+			 public void actionPerformed(ActionEvent e){
 				 activityListPage.setCaller(0);
 				 frame.clear();
 				 frame.display(activityListPage);
@@ -112,8 +106,7 @@ public class PageCustomerAppointment extends Page {
 		});
 		
 		returnToEntryPageButton.addActionListener(new ActionListener() {
-			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Return to entry page button is clicked.");
+			 public void actionPerformed(ActionEvent e){
 				 frame.clear();
 				 frame.display(entryPage);
 		    }  

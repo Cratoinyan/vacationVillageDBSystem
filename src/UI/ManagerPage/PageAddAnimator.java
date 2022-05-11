@@ -5,7 +5,6 @@ import Business.ModelManager.AnimatorManager;
 import DB.DAO.AnimatorDAO;
 import UI.Page;
 import UI.PageEntry;
-import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,14 +36,12 @@ public class PageAddAnimator extends Page {
 		
 		addButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Add button is clicked.");
 				 animatorManager.addAnimator(new Animator(nameTextField.getText(), phoneNumberTextField.getText(), expertiseAreaTextField.getText()));
 		    }
 		});
 		
 		returnToEntryPageButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Return to entry page button is clicked.");
 				 frame.clear();
 				 frame.display(entryPage);
 		    }  

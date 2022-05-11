@@ -29,7 +29,6 @@ public class PageManager extends Page {
 		
 		addCustomerButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Add customer button is clicked.");
 				 frame.clear();
 				 frame.display(addCustomerPage);
 		    }  
@@ -37,7 +36,6 @@ public class PageManager extends Page {
 		
 		addAnimatorButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Add animator button is clicked.");
 				 frame.clear();
 				 frame.display(addAnimatorPage);
 		    }  
@@ -45,7 +43,6 @@ public class PageManager extends Page {
 		
 		addEquipPersonButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Add equip person button is clicked.");
 				 frame.clear();
 				 frame.display(addEquipPersonPage);
 		    }  
@@ -53,7 +50,6 @@ public class PageManager extends Page {
 		
 		returnToEntryPageButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Return to entry page button is clicked.");
 				 frame.clear();
 				 frame.display(entryPage);
 		    }  

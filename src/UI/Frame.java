@@ -15,11 +15,7 @@ public class Frame {
 		frame.setVisible(true);
 		frame.getContentPane().setBackground(new Color(92, 43, 7));
 	}
-	
-	public void shutdown()
-	{
-		
-	}
+
 	
 	public void display(Page page)
 	{

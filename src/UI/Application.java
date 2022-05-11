@@ -64,16 +64,14 @@ public class Application {
 		activityListPage = new PageActivityList();
 		activityListPage.frame = mainFrame;
 		activityListPage.startup();
-		
-		//Activity list page links can only be referenced after construction of object.
+
 		deleteActivityPage.activityListPage = activityListPage;
 		
 		customerAppointmentPage = new PageCustomerAppointment();
 		customerAppointmentPage.frame = mainFrame;
 		customerAppointmentPage.activityListPage = activityListPage;
 		customerAppointmentPage.startup();
-		
-		//Customer appointment page and delete activity page links can only be referenced after construction of object.
+
 		activityListPage.customerAppointmentPage = customerAppointmentPage;
 		activityListPage.deleteActivityPage = deleteActivityPage;
 		
@@ -107,8 +105,7 @@ public class Application {
 		entryPage.customerLoginPage = customerLoginPage;
 		entryPage.managerPage = managerPage;
 		entryPage.startup();
-		
-		//Entry Page links can only be referenced after construction of object.
+
 		addEquipmentPage.entryPage = entryPage;
 		addEmergencyInfoPage.entryPage = entryPage;
 		createActivityPage.entryPage = entryPage;

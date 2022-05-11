@@ -5,7 +5,6 @@ import DB.DAO.ActivityDAO;
 import UI.Page;
 import UI.PageActivityList;
 import UI.PageEntry;
-import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,7 +34,6 @@ public class PageDeleteActivity extends Page {
 		
 		currentActivitiesButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Current Activities button is clicked.");
 				 activityListPage.setCaller(1);
 				 frame.clear();
 				 frame.display(activityListPage);
@@ -44,14 +42,12 @@ public class PageDeleteActivity extends Page {
 		
 		deleteActivityButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Delete button is clicked.");
 				 activityManager.deleteActivity(Integer.parseInt(activityIdToDeleteTextField.getText()));
 		    }  
 		});
 		
 		returnToEntryPageButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Return to entry page button is clicked.");
 				 frame.clear();
 				 frame.display(entryPage);
 		    }  

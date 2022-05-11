@@ -4,7 +4,6 @@ import Business.ModelManager.AnimatorManager;
 import DB.DAO.AnimatorDAO;
 import UI.Page;
 import UI.PageEntry;
-import UI.Print;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,7 +33,6 @@ public class PageAnimatorLogin extends Page {
 		
 		loginButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Login button is clicked.");
 				 if(animatorManager.authenticateAnimator(phoneNumberTextField.getText(), passwordTextField.getText())) {
 					 SessionInformation.animatorID = animatorDAO.getIDFromPhoneNumber(phoneNumberTextField.getText());
 					 frame.clear();
@@ -45,7 +43,6 @@ public class PageAnimatorLogin extends Page {
 		
 		returnToEntryPageButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e){  
-				 Print.info("Return to entry page button is clicked.");
 				 frame.clear();
 				 frame.display(entryPage);
 		    }  
