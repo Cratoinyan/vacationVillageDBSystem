@@ -1,6 +1,7 @@
 package UI;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Frame {
 	
@@ -9,9 +10,10 @@ public class Frame {
 	public void startup()
 	{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(800,600);
+		frame.setSize(800,800);
 		frame.setLayout(null);
 		frame.setVisible(true);
+		frame.getContentPane().setBackground(new Color(92, 43, 7));
 	}
 	
 	public void shutdown()

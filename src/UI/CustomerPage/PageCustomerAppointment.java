@@ -2,8 +2,10 @@ package UI.CustomerPage;
 
 import Business.Model.Appointment;
 import Business.ModelManager.ActivityManager;
+import Business.ModelManager.CustomerManager;
 import DB.DAO.ActivityDAO;
 import DB.DAO.AppointmentDAO;
+import DB.DAO.CustomerDAO;
 import UI.Page;
 import UI.PageActivityList;
 import UI.PageEntry;
@@ -34,6 +36,7 @@ public class PageCustomerAppointment extends Page {
 
 	private ActivityManager activityManager = new ActivityManager(new ActivityDAO());
 	private AppointmentDAO appointmentDAO = new AppointmentDAO();
+	private CustomerManager customerManager = new CustomerManager(new CustomerDAO());
 	
 	//Links
 	public PageEntry entryPage = null;
@@ -59,8 +62,15 @@ public class PageCustomerAppointment extends Page {
 			 public void actionPerformed(ActionEvent e){  
 				 Print.info("Individual activity submit button is clicked.");
 				 String activityInfo[] = activityManager.getIndActivityInfo(iDateTextField.getText(), iHourTextField.getText());
-				 appointmentDAO.addAppointment(new Appointment(SessionInformation.customerID,
-						 Integer.parseInt(activityInfo[0]),Integer.parseInt(activityInfo[1]), iDateTextField.getText(), iHourTextField.getText()));
+
+				 int customerAge = customerManager.getAge(String.valueOf(SessionInformation.customerID));
+
+				 if (customerAge >= Integer.parseInt(activityInfo[2]) ){
+					 appointmentDAO.addAppointment(new Appointment(SessionInformation.customerID,
+							 Integer.parseInt(activityInfo[0]),Integer.parseInt(activityInfo[1]), iDateTextField.getText(), iHourTextField.getText()));
+				 }else{
+					 //todo add error message
+				 }
 		    }  
 		});
 		
@@ -75,12 +85,21 @@ public class PageCustomerAppointment extends Page {
 		});
 		
 		mSubmitButton.addActionListener(new ActionListener() {
-			 public void actionPerformed(ActionEvent e){  
+			 public void actionPerformed(ActionEvent e){
+				 String newCapacity;
+				 String date = mDateTextField.getText();
+				 String hour = mHourTextField.getText();
+
 				 Print.info("Mass activity submit button is clicked.");
-				 String activtiyInfo[] = activityManager.getMassActivityInfo(mDateTextField.getText(), mHourTextField.getText());
-				 appointmentDAO.addAppointment(new Appointment(SessionInformation.customerID,
-						 Integer.parseInt(activtiyInfo[0]),Integer.parseInt(activtiyInfo[1]),mDateTextField.getText(),mHourTextField.getText()));
-		    }  
+				 String activtiyInfo[] = activityManager.getMassActivityInfo(date, hour);
+
+				 if(activityManager.verifyMassActivityCapacity(date, hour)){
+					 appointmentDAO.addAppointment(new Appointment(SessionInformation.customerID,
+							 Integer.parseInt(activtiyInfo[0]),Integer.parseInt(activtiyInfo[1]),date,hour));
+					 newCapacity = activityManager.getMassActivityParticipantCount(date, hour) + 1 + "-" + activityManager.getMassActivityCapacity(date, hour);
+					 activityManager.updateActivityCapacity(mDateTextField.getText(), mHourTextField.getText(), newCapacity);
+		    	}
+			 }
 		});
 		
 		mActivityListButton.addActionListener(new ActionListener() {

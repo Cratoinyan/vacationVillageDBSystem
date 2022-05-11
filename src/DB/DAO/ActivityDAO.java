@@ -20,8 +20,8 @@ public class ActivityDAO {
         DbContext.ExecuteQuery(sql);
     }
 
-    public void updateMassActivityCapacity(String activityID, String newCapacity){
-        String sql = "update massActivity set capacity = '" + newCapacity + "' where activityID = '" + activityID + "';";
+    public void updateMassActivityCapacity(String date, String hour, String newCapacity){
+        String sql = "update massActivity set capacity = '" + newCapacity + "' where activityID = '" + date + "' and hour = '" + hour +"';";
         DbContext.ExecuteQuery(sql);
     }
 
@@ -64,7 +64,15 @@ public class ActivityDAO {
     }
 
     public QueryResult getIndActivityInfo(String date, String hour){
-        String sql = "select activityID, animatorID from indActivityInfo where date = '" + date + "' and hour = '" + hour + "';";
+        String sql = "select activityID, animatorID, age from indActivityInfo where date = '" + date + "' and hour = '" + hour + "';";
+        QueryResult queryResult;
+
+        queryResult = DbContext.ExecuteSelectQuery(sql);
+        return queryResult;
+    }
+
+    public QueryResult getMassActivityCapacity(String date, String hour){
+        String sql = "select capacity from massActivityInfo where date = '" + date + "' and hour = '" + hour + "';";
         QueryResult queryResult;
 
         queryResult = DbContext.ExecuteSelectQuery(sql);

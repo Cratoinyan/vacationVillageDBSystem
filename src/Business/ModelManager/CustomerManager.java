@@ -29,4 +29,6 @@ public class CustomerManager {
 
         return false;
     }
+
+    public int getAge(String customerID){         return customerDAO.getAge(customerID);     }
 }

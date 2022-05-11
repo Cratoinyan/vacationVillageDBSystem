@@ -69,4 +69,27 @@ public class CustomerDAO {
 
         return ID;
     }
+
+    public Integer getAge(String customerID){
+        QueryResult queryResult = null;
+        int age = 0;
+
+        String sql = "select age from customer where customerID = " + customerID + ";";
+        queryResult = DbContext.ExecuteSelectQuery(sql);
+
+        try {
+            while(queryResult.resultSet.next()) {
+                age = queryResult.resultSet.getInt("age");
+            }
+            System.out.println(age);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
+
+        queryResult.closeConnection();
+        return age;
+    }
 }
